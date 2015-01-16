@@ -735,7 +735,8 @@ $query=$this->db_distribucion->select('*')
 				->join('cuenta E','E.idCuenta=A.idCuenta','left')
 				->join('item F','F.idItem=A.idItem','left')
 				->join('region G','G.idReg=A.idReg','left')
-				->where('etapaFlag',$flag);
+				->where('etapaFlag',$flag)
+				->where('estado !=','Anulado');
 $query=$this->db_distribucion->get();
 return $query->result();
 }

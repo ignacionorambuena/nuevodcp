@@ -22,8 +22,92 @@
 <td width="9%" valign="top">A</td>
 <td width="1%" valign="top">:</td>
 <td width="90%" valign="top">
-ORLANDO MANCILLA VASQUEZ<br>
-JEFE DEPTO. DE ADMINISTRACIÓN Y FINANZAS<br>
+<?php
+if($memo->jefedepto==1){
+$a="Orlando Mancilla Vasquez";
+$a_cargo="JEFE DEPTO. DE ADMINISTRACIÓN Y FINANZAS";
+}
+if($memo->jefedepto==2){
+$a="Angela Venegas Avila";
+$a_cargo="JEFA (S) DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->jefedepto==3){
+$a="Marcos Barretto Muñoz";
+$a_cargo="JEFE (S) DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->jefedepto==4){
+$a="Soledad Castillo Medina";
+$a_cargo="COORDINADORA DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->jefedepto==5){
+$a="Camila Castillo Guerrero";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==6){
+$a="Victor Santoro";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==7){
+$a="Miguel Carvajal";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==8){
+$a="Emilio Reyes Arias";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==9){
+$a="Cristina Pavez Cosio";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==10){
+$a="Jorge Parraguez Caroca";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==11){
+$a="Irene Muñoz Vilches";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==12){
+$a="Leocan Portus";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==13){
+$a="Luis Villegas Cardenas";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==14){
+$a="Felipe Roman";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==15){
+$a="Rodrigo Saldivia";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==16){
+$a="Yenifer Sandoval Alegria";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==17){
+$a="Stefano Ferreccio Bugueño";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==18){
+$a="Rodrigo Lepe Nuñez";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==19){
+$a="Samuel Pozo Alfaro";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==20){
+$a="Marcos Barretto Muñoz";
+$a_cargo="Director Regional (S)";
+}
+
+?>
+
+<?php echo strtoupper(str_replace($busca,$remplaza,$a)); ?><br>
+<?php echo strtoupper(str_replace($busca,$remplaza,$a_cargo));?><br>
 INSTITUTO NACIONAL DE LA JUVENTUD
 </td>
 </tr>
@@ -32,19 +116,123 @@ INSTITUTO NACIONAL DE LA JUVENTUD
 <td width="9%" valign="top">DE</td>
 <td width="1%" valign="top">:</td>
 <td width="90%" valign="top">
-<?php echo strtoupper($memo->jefedepto); ?><br>
 <?php
-if($memo->jefedepto=="Soledad Castillo M"){
-?>
-COORDINADORA DE PROGRAMA<br>
-<?php
-}else{
-?>
-JEFE /A (S) DEPTO. DE COORDINACIÓN PROGRAMÁTICA<br>
-<?php
+if($memo->directorreg==1){
+$de="Orlando Mancilla Vasquez";
+$de_cargo="JEFE DEPTO. DE ADMINISTRACIÓN Y FINANZAS";
 }
+if($memo->directorreg==2){
+$de="Angela Venegas Avila";
+$de_cargo="JEFA (S) DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->directorreg==3){
+$de="Marcos Barretto Muñoz";
+$de_cargo="JEFE (S) DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->directorreg==4){
+$de="Soledad Castillo Medina";
+$de_cargo="COORDINADORA DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->directorreg==5){
+$de="Camila Castillo Guerrero";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+
+}
+if($memo->directorreg==6){
+$de="Victor Santoro";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+
+}
+if($memo->directorreg==7){
+$de="Miguel Carvajal";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+
+}
+if($memo->directorreg==8){
+$de="Emilio Reyes Arias";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+
+}
+if($memo->directorreg==9){
+$de="Cristina Pavez Cosio";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+
+}
+if($memo->directorreg==10){
+$de="Jorge Parraguez Caroca";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+
+}
+if($memo->directorreg==11){
+$de="Irene Muñoz Vilches";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+
+}
+if($memo->directorreg==12){
+$de="Leocan Portus";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+
+}
+if($memo->directorreg==13){
+$de="Luis Villegas Cardenas";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+
+}
+if($memo->directorreg==14){
+$de="Felipe Roman";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+
+}
+if($memo->directorreg==15){
+$de="Rodrigo Saldivia";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+
+}
+if($memo->directorreg==16){
+$de="Yenifer Sandoval Alegria";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+
+}
+if($memo->directorreg==17){
+$de="Stefano Ferreccio Bugueño";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+
+}
+if($memo->directorreg==18){
+$de="Rodrigo Lepe Nuñez";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+
+}
+if($memo->directorreg==19){
+$de="Samuel Pozo Alfaro";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+
+}
+if($memo->directorreg==20){
+$de="Marcos Barretto Muñoz";
+$de_cargo="Director Regional (S)";
+}
+
 ?>
 
+
+<?php echo strtoupper(str_replace($busca,$remplaza,$de)); ?><br>
+<?php echo strtoupper(str_replace($busca,$remplaza,$de_cargo));?><br>
 INSTITUTO NACIONAL DE LA JUVENTUD
 </td>
 </tr>
@@ -281,18 +469,10 @@ Sin otro particular, se despide.
 <tr><td>&nbsp;</td></tr>
 <tr>
 <td colspan="3" align="center">
-<b><?php echo strtoupper($memo->jefedepto); ?><br>
-<?php
-if($memo->jefedepto=="Soledad Castillo M"){
-?>
-COORDINADORA DE PROGRAMA<br>
-<?php
-}else{
-?>
-JEFE /A (S) DEPTO. DE COORDINACIÓN PROGRMÁTICA<br>
-<?php
-}
-?>
+<b>
+<?php echo strtoupper(str_replace($busca,$remplaza,$de)); ?><br>
+<?php echo strtoupper(str_replace($busca,$remplaza,$de_cargo));?><br>
+<?php if(isset($de_firma)){ echo strtoupper(str_replace($busca,$remplaza,$de_firma));}else {echo "";} ?>
 INSTITUTO NACIONAL DE LA JUVENTUD</b>
 </td>
 </tr>
