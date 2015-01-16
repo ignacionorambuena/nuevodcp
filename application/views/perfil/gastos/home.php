@@ -133,132 +133,51 @@ region = j('.region').val();
 if(region==1){
   document.getElementById("tipogasto").options[1].disabled = false;
   document.getElementById("tipogasto").options[5].disabled = true;
-$('#a').show();
-$('#de').show();
-$('#a_despues').hide();
-$('#de_despues').hide();
-document.getElementById('director').value = "Camila Castillo Guerrero";}
 if(region==2){
   document.getElementById("tipogasto").options[1].disabled = false;
   document.getElementById("tipogasto").options[5].disabled = true;
-$('#a').show();
-$('#de').show();
-$('#a_despues').hide();
-$('#de_despues').hide();
-document.getElementById('director').value = "Victor Santoro";}
 if(region==3){
   document.getElementById("tipogasto").options[1].disabled = false;
   document.getElementById("tipogasto").options[5].disabled = true;
-$('#a').show();
-$('#de').show();
-$('#a_despues').hide();
-$('#de_despues').hide();
-document.getElementById('director').value = "Miguel Carvajal";}
 if(region==4){
   document.getElementById("tipogasto").options[1].disabled = false;
   document.getElementById("tipogasto").options[5].disabled = true;
-$('#a').show();
-$('#de').show();
-$('#a_despues').hide();
-$('#de_despues').hide();
-document.getElementById('director').value = "Emilio Reyes Arias";}
 if(region==5){
   document.getElementById("tipogasto").options[1].disabled = false;
   document.getElementById("tipogasto").options[5].disabled = true;
-$('#a').show();
-$('#de').show();
-$('#a_despues').hide();
-$('#de_despues').hide();
-document.getElementById('director').value = "Cristina Pavez Cosio";}
 if(region==6){
   document.getElementById("tipogasto").options[1].disabled = false;
   document.getElementById("tipogasto").options[5].disabled = true;
-$('#a').show();
-$('#de').show();
-$('#a_despues').hide();
-$('#de_despues').hide();
-document.getElementById('director').value = "Jorge Parraguez Caroca";}
 if(region==7){
   document.getElementById("tipogasto").options[1].disabled = false;
   document.getElementById("tipogasto").options[5].disabled = true;
-$('#a').show();
-$('#de').show();
-$('#a_despues').hide();
-$('#de_despues').hide();
-document.getElementById('director').value = "Irene Muñoz Vilches";}
 if(region==8){
   document.getElementById("tipogasto").options[1].disabled = false;
   document.getElementById("tipogasto").options[5].disabled = true;
-$('#a').show();
-$('#de').show();
-$('#a_despues').hide();
-$('#de_despues').hide();
-document.getElementById('director').value = "Leocan Portus";}
 if(region==9){
   document.getElementById("tipogasto").options[1].disabled = false;
   document.getElementById("tipogasto").options[5].disabled = true;
-$('#a').show();
-$('#de').show();
-$('#a_despues').hide();
-$('#de_despues').hide();
-document.getElementById('director').value = "Luis Villegas Cardenas";}
 if(region==10){
   document.getElementById("tipogasto").options[1].disabled = false;
   document.getElementById("tipogasto").options[5].disabled = true;
-$('#a').show();
-$('#de').show();
-$('#a_despues').hide();
-$('#de_despues').hide();
-document.getElementById('director').value = "Felipe Roman";}
 if(region==11){
   document.getElementById("tipogasto").options[1].disabled = false;
   document.getElementById("tipogasto").options[5].disabled = true;
-$('#a').show();
-$('#de').show();
-$('#a_despues').hide();
-$('#de_despues').hide();
-document.getElementById('director').value = "Rodrigo Saldivia";}
 if(region==12){
   document.getElementById("tipogasto").options[1].disabled = false;
   document.getElementById("tipogasto").options[5].disabled = true;
-$('#a').show();
-$('#de').show();
-$('#a_despues').hide();
-$('#de_despues').hide();
-document.getElementById('director').value = "Yenifer Sandoval Alegria";}
 if(region==13){
   document.getElementById("tipogasto").options[1].disabled = false;
   document.getElementById("tipogasto").options[5].disabled = true;
-$('#a').show();
-$('#de').show();
-$('#a_despues').hide();
-$('#de_despues').hide();
-document.getElementById('director').value = "Stefano Ferreccio Bugueño";}
 if(region==14){
   document.getElementById("tipogasto").options[1].disabled = false;
   document.getElementById("tipogasto").options[5].disabled = true;
-$('#a').show();
-$('#de').show();
-$('#a_despues').hide();
-$('#de_despues').hide();
-document.getElementById('director').value = "Rodrigo Lepe Nuñez";}
 if(region==15){
   document.getElementById("tipogasto").options[1].disabled = false;
   document.getElementById("tipogasto").options[5].disabled = true;
-$('#a').show();
-$('#de').show();
-$('#a_despues').hide();
-$('#de_despues').hide();
-document.getElementById('director').value = "Samuel Pozo Alfaro";}
 if(region==16){
-    document.getElementById("tipogasto").options[5].disabled = false;
+  document.getElementById("tipogasto").options[5].disabled = false;
 document.getElementById("tipogasto").options[1].disabled = true;
-$('#de').hide();
-$('#de_despues').show('slow');
-
-$('#a').hide();
-$('#a_despues').show('slow');
-document.getElementById('jefe_despues').value = "Orlando Mancilla";
 }
 
 });
@@ -527,37 +446,70 @@ function soloNumero(e)
 </div>
 
 <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4" id="a" >
-<label>A</label> <?php echo form_error('jefe',"<small class='text-danger'>","</small>");?>
-<select name="jefe" class="form-control input-sm">
+<label>A</label>
+<select name="jefe" class="form-control input-sm" required>
 <option value="">Seleccione una opción</option>
-<option value="Angela Venegas A">Angela Venegas Avila</option>
-<option value="Marcos Barreto M">Marcos Barreto Muñoz</option>
-<option value="Soledad Castillo M">Soledad Castillo M</option>
+<optgroup label="Departamento">
+<option value="1">Orlando Mancilla</option>
+<option value="2">Angela Venegas Avila</option>
+<option value="3">Marcos Barretto Muñoz</option>
+<option value="4">Soledad Castillo Medina</option>
+</optgroup>
+<optgroup label="Directores Regionales">
+<option value="5">[ I ] Camila Castillo Guerrero</option>
+<option value="6">[ II ] Victor Santoro</option>
+<option value="7">[ III ] Miguel Carvajal</option>
+<option value="8">[ IV ] Emilio Reyes Arias</option>
+<option value="9">[ V ] Cristina Pavez Cosio</option>
+<option value="10">[ VI ] Jorge Parraguez Caroca</option>
+<option value="11">[ VII ] Irene Muñoz Vilches</option>
+<option value="12">[ VIII ] Leocan Portus</option>
+<option value="13">[ IX ] Luis Villegas Cardenas</option>
+<option value="14">[ X ] Felipe Roman</option>
+<option value="15">[ XI ] Rodrigo Saldivia</option>
+<option value="16">[ XII ] Yenifer Sandoval Alegria</option>
+<option value="17">[ XIII ] Stefano Ferreccio Bugueño</option>
+<option value="18">[ XIV ] Rodrigo Lepe Nuñez</option>
+<option value="19">[ XV ] Samuel Pozo Alfaro</option>
+<option value="20">[ DR (S) ]Marcos Barretto Muñoz</option>
+</optgroup>
 </select>
 </div>
 
-<div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4" id="a_despues" style="display:none;">
-<label>A</label> <?php echo form_error('jefe',"<small class='text-danger'>","</small>");?>
-<input type="text" name="" id="jefe_despues" class="form-control input-sm" readonly="">
-</div>
 
-<!-- SI SELECCIONA NIVEL CENTRAL ESTA SECCIÓN SERÁ ACTIVADA ========================================== -->
+
+
 <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4" id="de" >
-<label>De</label> <?php echo form_error('director',"<small class='text-danger'>","</small>");?>
-<input type="text" name="director" id="director" class="form-control input-sm" readonly="">
-</div>
-
-
-<div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4" style="display:none;" id="de_despues">
-<label>De</label> <?php echo form_error('director',"<small class='text-danger'>","</small>");?>
-<select name="director_b" class="form-control input-sm">
+<select name="director" class="form-control input-sm" required>
 <option value="">Seleccione una opción</option>
-<option value="Angela Venegas A">Angela Venegas Avila</option>
-<option value="Marcos Barreto M">Marcos Barreto Muñoz</option>
-<option value="Soledad Castillo M">Soledad Castillo M</option>
+<optgroup label="Departamento">
+<option value="1">Orlando Mancilla</option>
+<option value="2">Angela Venegas Avila</option>
+<option value="3">Marcos Barretto Muñoz</option>
+<option value="4">Soledad Castillo Medina</option>
+</optgroup>
+<optgroup label="Directores Regionales">
+<option value="5">[ I ] Camila Castillo Guerrero</option>
+<option value="6">[ II ] Victor Santoro</option>
+<option value="7">[ III ] Miguel Carvajal</option>
+<option value="8">[ IV ] Emilio Reyes Arias</option>
+<option value="9">[ V ] Cristina Pavez Cosio</option>
+<option value="10">[ VI ] Jorge Parraguez Caroca</option>
+<option value="11">[ VII ] Irene Muñoz Vilches</option>
+<option value="12">[ VIII ] Leocan Portus</option>
+<option value="13">[ IX ] Luis Villegas Cardenas</option>
+<option value="14">[ X ] Felipe Roman</option>
+<option value="15">[ XI ] Rodrigo Saldivia</option>
+<option value="16">[ XII ] Yenifer Sandoval Alegria</option>
+<option value="17">[ XIII ] Stefano Ferreccio Bugueño</option>
+<option value="18">[ XIV ] Rodrigo Lepe Nuñez</option>
+<option value="19">[ XV ] Samuel Pozo Alfaro</option>
+<option value="20">[ DR (S) ]Marcos Barretto Muñoz</option>
+</optgroup>
 </select>
 </div>
-<!-- SI SELECCIONA NIVEL CENTRAL ESTA SECCIÓN SERÁ ACTIVADA ========================================== -->
+
+
 
 
 
