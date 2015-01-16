@@ -34,21 +34,6 @@ c.datepicker.setDefaults(c.datepicker.regional['es']);
 <link rel="stylesheet" href="<?php echo base_url('css/jquery.dataTables.css');?>">
 <script>
 var dt= jQuery.noConflict();
-// dt(document).ready(function() {
-//     dt('#example').DataTable();
-// } );
-
-// dt(function(){
-// setTimeout(function(){
-
-// dt("#example").dataTable({
-// fnInitComplete: function () {
-// dt("#overlay").hide();
-// }
-// });
-// }, 1);
-// });
-
 dt(document).ready( function() {
 dt('#example').dataTable( {
 "fnInitComplete": function(oSettings, json) {
@@ -527,36 +512,68 @@ function soloNumero(e)
 </div>
 
 <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4" id="a" >
-<label>A</label> <?php echo form_error('jefe',"<small class='text-danger'>","</small>");?>
-<select name="jefe" class="form-control input-sm">
+<label>A</label>
+<select name="jefe" class="form-control input-sm" required>
 <option value="">Seleccione una opción</option>
-<option value="Angela Venegas A">Angela Venegas Avila</option>
-<option value="Marcos Barreto M">Marcos Barreto Muñoz</option>
-<option value="Soledad Castillo M">Soledad Castillo M</option>
+<optgroup label="Departamento">
+<option value="1">Orlando Mancilla</option>
+<option value="2">Angela Venegas Avila</option>
+<option value="3">Marcos Barretto Muñoz</option>
+<option value="4">Soledad Castillo Medina</option>
+</optgroup>
+<optgroup label="Directores Regionales">
+<option value="5">[ I ] Camila Castillo Guerrero</option>
+<option value="6">[ II ] Victor Santoro</option>
+<option value="7">[ III ] Miguel Carvajal</option>
+<option value="8">[ IV ] Emilio Reyes Arias</option>
+<option value="9">[ V ] Cristina Pavez Cosio</option>
+<option value="10">[ VI ] Jorge Parraguez Caroca</option>
+<option value="11">[ VII ] Irene Muñoz Vilches</option>
+<option value="12">[ VIII ] Leocan Portus</option>
+<option value="13">[ IX ] Luis Villegas Cardenas</option>
+<option value="14">[ X ] Felipe Roman</option>
+<option value="15">[ XI ] Rodrigo Saldivia</option>
+<option value="16">[ XII ] Yenifer Sandoval Alegria</option>
+<option value="17">[ XIII ] Stefano Ferreccio Bugueño</option>
+<option value="18">[ XIV ] Rodrigo Lepe Nuñez</option>
+<option value="19">[ XV ] Samuel Pozo Alfaro</option>
+<option value="20">[ DR (S) ]Marcos Barretto Muñoz</option>
+</optgroup>
 </select>
-</div>
-
-<div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4" id="a_despues" style="display:none;">
-<label>A</label> <?php echo form_error('jefe',"<small class='text-danger'>","</small>");?>
-<input type="text" name="" id="jefe_despues" class="form-control input-sm" readonly="">
 </div>
 
 <!-- SI SELECCIONA NIVEL CENTRAL ESTA SECCIÓN SERÁ ACTIVADA ========================================== -->
 <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4" id="de" >
-<label>De</label> <?php echo form_error('director',"<small class='text-danger'>","</small>");?>
-<input type="text" name="director" id="director" class="form-control input-sm" readonly="">
-</div>
-
-
-<div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4" style="display:none;" id="de_despues">
-<label>De</label> <?php echo form_error('director',"<small class='text-danger'>","</small>");?>
-<select name="director_b" class="form-control input-sm">
+<label>A</label>
+<select name="director" class="form-control input-sm" required>
 <option value="">Seleccione una opción</option>
-<option value="Angela Venegas A">Angela Venegas Avila</option>
-<option value="Marcos Barreto M">Marcos Barreto Muñoz</option>
-<option value="Soledad Castillo M">Soledad Castillo M</option>
+<optgroup label="Departamento">
+<option value="1">Orlando Mancilla</option>
+<option value="2">Angela Venegas Avila</option>
+<option value="3">Marcos Barretto Muñoz</option>
+<option value="4">Soledad Castillo Medina</option>
+</optgroup>
+<optgroup label="Directores Regionales">
+<option value="5">[ I ] Camila Castillo Guerrero</option>
+<option value="6">[ II ] Victor Santoro</option>
+<option value="7">[ III ] Miguel Carvajal</option>
+<option value="8">[ IV ] Emilio Reyes Arias</option>
+<option value="9">[ V ] Cristina Pavez Cosio</option>
+<option value="10">[ VI ] Jorge Parraguez Caroca</option>
+<option value="11">[ VII ] Irene Muñoz Vilches</option>
+<option value="12">[ VIII ] Leocan Portus</option>
+<option value="13">[ IX ] Luis Villegas Cardenas</option>
+<option value="14">[ X ] Felipe Roman</option>
+<option value="15">[ XI ] Rodrigo Saldivia</option>
+<option value="16">[ XII ] Yenifer Sandoval Alegria</option>
+<option value="17">[ XIII ] Stefano Ferreccio Bugueño</option>
+<option value="18">[ XIV ] Rodrigo Lepe Nuñez</option>
+<option value="19">[ XV ] Samuel Pozo Alfaro</option>
+<option value="20">[ DR (S) ]Marcos Barretto Muñoz</option>
+</optgroup>
 </select>
 </div>
+
 <!-- SI SELECCIONA NIVEL CENTRAL ESTA SECCIÓN SERÁ ACTIVADA ========================================== -->
 
 
