@@ -1479,11 +1479,12 @@ return TRUE;
 
 
 
-public function aprobar_memo_etapa_dos($codigo,$visacion,$jefedepto,$observaciones,$etapaFlag)
+public function aprobar_memo_etapa_dos($codigo,$visacion,$a,$de,$observaciones,$etapaFlag)
 {
 $data=array(
 'visacion'=>$visacion,
-'jefedepto'=>$jefedepto,
+'jefedepto'=>$a,
+'directorreg'=>$de,
 'observaciones'=>$observaciones,
 'etapaFlag'=>$etapaFlag,
 'adj_memo_dos'=>"Falta"
@@ -1499,10 +1500,13 @@ return FALSE;
 }
 }
 
-public function aprobar_memo_etapa_tres($codigo,$numerooc,$fechaoc,$fechafinanza,$visacion,$mescontable,$etapaFlag)
+public function aprobar_memo_etapa_tres($codigo,$nombreactividad,$producto,$observaciones,$numerooc,$fechaoc,$fechafinanza,$visacion,$mescontable,$etapaFlag)
 {
 $data=array(
 'numerooc'=>$numerooc,
+'nombreActGastos'=>$nombreactividad,
+'productoAct'=>$producto,
+'observaciones'=>$observaciones,
 'fechaoc'=>$fechaoc,
 'fechafinanza'=>$fechafinanza,
 'visacion'=>$visacion,
@@ -1523,12 +1527,15 @@ return FALSE;
 }
 
 
-public function aprobar_memo_etapa_cuatro($codigo,$visacion,$numerofactura,$monto,$etapaFlag)
+public function aprobar_memo_etapa_cuatro($codigo,$visacion,$numerofactura,$monto,$jefe,$director,$observaciones,$etapaFlag)
 {
 $data=array(
 'visacion'=>$visacion,
 'numerofactura'=>$numerofactura,
 'monto'=>$monto,
+'jefedepto'=>$jefe,
+'directorreg'=>$director,
+'observaciones'=>$observaciones,
 'etapaFlag'=>$etapaFlag
 );
 
@@ -1545,12 +1552,13 @@ return FALSE;
 }
 
 
-public function aprobar_memo_etapa_cinco($codigo,$visacion,$jefedepto,$numerofactura,$etapaFlag,$adj_cinco)
+public function aprobar_memo_etapa_cinco($codigo,$visacion,$jefedepto,$director,$observaciones,$etapaFlag,$adj_cinco)
 {
 $data=array(
 'visacion'=>$visacion,
 'jefedepto'=>$jefedepto,
-'numerofactura'=>$numerofactura,
+'directorreg'=>$director,
+'observaciones'=>$observaciones,
 'etapaFlag'=>$etapaFlag,
 'adj_memo_cinco'=>$adj_cinco
 );
@@ -1567,6 +1575,30 @@ return FALSE;
 
 }
 
+
+public function aprobar_memo_etapa_cinco_fct($codigo,$visacion,$jefedepto,$director,$observaciones,$etapaFlag,$adj_cinco,$numerofactura)
+{
+$data=array(
+'visacion'=>$visacion,
+'jefedepto'=>$jefedepto,
+'directorreg'=>$director,
+'observaciones'=>$observaciones,
+'etapaFlag'=>$etapaFlag,
+'adj_memo_cinco'=>$adj_cinco,
+'numerofactura'=>$numerofactura,
+);
+
+$this->db->where('codGasto', $codigo);
+$this->db->update('gastos', $data);
+
+if (mysql_affected_rows()) {
+return TRUE;
+}else{
+return FALSE;
+}
+
+
+}
 
 public function aprobar_memo_etapa_seis($codigo,$fechapnud,$mescontable,$etapaFlag)
 {

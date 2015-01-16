@@ -312,7 +312,7 @@ document.getElementById('jefe_despues').value = "Orlando Mancilla";
 <td>
 <div class="radio">
 <label>
-<input type="radio" name="proveedor" value="<?php echo $prov->idProv; ?> ">
+<input type="radio" name="proveedor" value="<?php echo $prov->idProv; ?> " required>
 </label>
 </div>
 </td>
@@ -327,7 +327,7 @@ document.getElementById('jefe_despues').value = "Orlando Mancilla";
 </div>
 <div class="form-group col-xs-3 col-sm-3 col-md-3 col-lg-3">
 <label>Región</label> <?php echo form_error('region',"<small class='text-danger'>","</small>");?>
-<select name="region" class="form-control input-sm region">
+<select name="region" class="form-control input-sm region" required>
 <option value="">Seleccione Región</option>
 <?php
 foreach ($region as $reg) {
@@ -341,7 +341,7 @@ foreach ($region as $reg) {
 
 <div class="form-group col-xs-3 col-sm-3 col-md-3 col-lg-3">
 <label>Programa</label> <?php echo form_error('programa',"<small class='text-danger'>","</small>");?>
-<select name="programa" class="form-control input-sm programa">
+<select name="programa" class="form-control input-sm programa" required>
 <option value="">Seleccione Programa</option>
 <?php
 foreach ($programa as $prog) {
@@ -355,14 +355,14 @@ foreach ($programa as $prog) {
 
 <div class="form-group col-xs-3 col-sm-3 col-md-3 col-lg-3">
 <label>Componente</label> <?php echo form_error('componente',"<small class='text-danger'>","</small>");?>
-<select name="componente" class="form-control input-sm componente">
+<select name="componente" class="form-control input-sm componente" required>
 <option value="">Debe seleccionar un programa</option>
 </select>
 </div>
 
 <div class="form-group col-xs-3 col-sm-3 col-md-3 col-lg-3">
 <label>Actividad</label> <?php echo form_error('actividad',"<small class='text-danger'>","</small>");?>
-<select name="actividad" class="form-control input-sm actividad">
+<select name="actividad" class="form-control input-sm actividad" required>
 <option value="">Debe seleccionar un componente</option>
 </select>
 </div>
@@ -494,7 +494,7 @@ function soloNumero(e)
 
 <div class="form-group col-xs-3 col-sm-3 col-md-3 col-lg-3">
 <label>Fecha Actividad</label> <?php echo form_error('fechaactividad',"<small class='text-danger'>","</small>");?>
-<input type="date" name="fechaactividad" class="form-control input-sm" value="<?php echo set_value('fechaactividad');?>">
+<input type="date" name="fechaactividad" class="form-control input-sm" value="<?php echo set_value('fechaactividad');?>" required>
 </div>
 
 <div class="form-group col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -504,14 +504,14 @@ function soloNumero(e)
 
 <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <label for="">Observaciones</label> <?php echo form_error('observaciones',"<small class='text-danger'>","</small>");?>
-<textarea name="observaciones" class="form-control input-sm" cols="20" rows="5"><?php echo set_value('observaciones');?></textarea>
+<textarea name="observaciones" class="form-control input-sm" cols="20" rows="5" required><?php echo set_value('observaciones');?></textarea>
 </div>
 
 <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <h4 style="padding:2px 0;border-bottom:1px dashed #333; color:blue;"><b>Detalle Memorándum</b></h4>
 </div>
 
-<div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4" id="a" >
+<div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4">
 <label>A</label>
 <select name="jefe" class="form-control input-sm" required>
 <option value="">Seleccione una opción</option>
@@ -543,8 +543,8 @@ function soloNumero(e)
 </div>
 
 <!-- SI SELECCIONA NIVEL CENTRAL ESTA SECCIÓN SERÁ ACTIVADA ========================================== -->
-<div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4" id="de" >
-<label>A</label>
+<div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4">
+<label>DE</label>
 <select name="director" class="form-control input-sm" required>
 <option value="">Seleccione una opción</option>
 <optgroup label="Departamento">

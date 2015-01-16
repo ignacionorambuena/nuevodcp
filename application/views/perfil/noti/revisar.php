@@ -98,32 +98,6 @@ j(".codtaller").css('display','none');
 });
 
 
-var j= jQuery.noConflict();
-j(document).ready(function() {
-j(".region").change(function() {
-j(".region option:selected").each(function() {
-region = j('.region').val();
-
-if(region==1){ document.getElementById('director').value = "Camila Castillo Guerrero";}
-if(region==2){ document.getElementById('director').value = "Victor Santoro";}
-if(region==3){ document.getElementById('director').value = "Miguel Carvajal";}
-if(region==4){ document.getElementById('director').value = "Emilio Reyes Arias";}
-if(region==5){ document.getElementById('director').value = "Cristina Pavez Cosio";}
-if(region==6){ document.getElementById('director').value = "Jorge Parraguez Caroca";}
-if(region==7){ document.getElementById('director').value = "Irene Muñoz Vilches";}
-if(region==8){ document.getElementById('director').value = "Leocan Portus";}
-if(region==9){ document.getElementById('director').value = "Luis Villegas Cardenas";}
-if(region==10){ document.getElementById('director').value = "Felipe Roman";}
-if(region==11){ document.getElementById('director').value = "Rodrigo Saldivia";}
-if(region==12){ document.getElementById('director').value = "Yenifer Sandoval Alegria";}
-if(region==13){ document.getElementById('director').value = "Stefano Ferreccio Bugueño";}
-if(region==14){ document.getElementById('director').value = "Rodrigo Lepe Nuñez";}
-if(region==15){ document.getElementById('director').value = "Samuel Pozo Alfaro";}
-if(region==16){ document.getElementById('director').value = "-";}
-});
-})
-});
-
 </script>
 
 <?php foreach ($revisar as $rev){ ?>
@@ -285,16 +259,63 @@ if(region==16){ document.getElementById('director').value = "-";}
 
 <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
 <label>A</label>
-<select name="jefe" class="form-control input-sm" disabled="">
-<option value="">Orlando Mancilla Vasquez</option>
+<select name="jefe" class="form-control input-sm" required>
+<option value="">Seleccione una opción</option>
+<optgroup label="Departamento">
+<option value="1">Orlando Mancilla</option>
+<option value="2">Angela Venegas Avila</option>
+<option value="3">Marcos Barretto Muñoz</option>
+<option value="4">Soledad Castillo Medina</option>
+</optgroup>
+<optgroup label="Directores Regionales">
+<option value="5">[ I ] Camila Castillo Guerrero</option>
+<option value="6">[ II ] Victor Santoro</option>
+<option value="7">[ III ] Miguel Carvajal</option>
+<option value="8">[ IV ] Emilio Reyes Arias</option>
+<option value="9">[ V ] Cristina Pavez Cosio</option>
+<option value="10">[ VI ] Jorge Parraguez Caroca</option>
+<option value="11">[ VII ] Irene Muñoz Vilches</option>
+<option value="12">[ VIII ] Leocan Portus</option>
+<option value="13">[ IX ] Luis Villegas Cardenas</option>
+<option value="14">[ X ] Felipe Roman</option>
+<option value="15">[ XI ] Rodrigo Saldivia</option>
+<option value="16">[ XII ] Yenifer Sandoval Alegria</option>
+<option value="17">[ XIII ] Stefano Ferreccio Bugueño</option>
+<option value="18">[ XIV ] Rodrigo Lepe Nuñez</option>
+<option value="19">[ XV ] Samuel Pozo Alfaro</option>
+<option value="20">[ DR (S) ]Marcos Barretto Muñoz</option>
+</optgroup>
 </select>
 </div>
 
 <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
 <label>DE</label>
-<select name="jefedepto" class="form-control input-sm">
-<option value="Angela Venegas A" <?php if($rev->jefedepto=="Angela Venegas A"){ echo "selected";}?>>Angela Venegas Avila</option>
-<option value="Marcos Barretto M" <?php if($rev->jefedepto=="Marcos Barretto M"){ echo "selected";}?>>Marcos Barretto Muñoz</option>
+<select name="director" class="form-control input-sm" required>
+<option value="">Seleccione una opción</option>
+<optgroup label="Departamento">
+<option value="1">Orlando Mancilla</option>
+<option value="2">Angela Venegas Avila</option>
+<option value="3">Marcos Barretto Muñoz</option>
+<option value="4">Soledad Castillo Medina</option>
+</optgroup>
+<optgroup label="Directores Regionales">
+<option value="5">[ I ] Camila Castillo Guerrero</option>
+<option value="6">[ II ] Victor Santoro</option>
+<option value="7">[ III ] Miguel Carvajal</option>
+<option value="8">[ IV ] Emilio Reyes Arias</option>
+<option value="9">[ V ] Cristina Pavez Cosio</option>
+<option value="10">[ VI ] Jorge Parraguez Caroca</option>
+<option value="11">[ VII ] Irene Muñoz Vilches</option>
+<option value="12">[ VIII ] Leocan Portus</option>
+<option value="13">[ IX ] Luis Villegas Cardenas</option>
+<option value="14">[ X ] Felipe Roman</option>
+<option value="15">[ XI ] Rodrigo Saldivia</option>
+<option value="16">[ XII ] Yenifer Sandoval Alegria</option>
+<option value="17">[ XIII ] Stefano Ferreccio Bugueño</option>
+<option value="18">[ XIV ] Rodrigo Lepe Nuñez</option>
+<option value="19">[ XV ] Samuel Pozo Alfaro</option>
+<option value="20">[ DR (S) ]Marcos Barretto Muñoz</option>
+</optgroup>
 </select>
 </div>
 

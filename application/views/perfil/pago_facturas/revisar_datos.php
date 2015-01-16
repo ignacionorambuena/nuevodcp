@@ -176,11 +176,11 @@ if(region==16){ document.getElementById('director').value = "-";}
 
 
 <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-<h4 style="padding:2px 0;border-bottom:1px dashed #333; color:blue;"><b>Datos <?php if($rev->tipogasto==1){ echo "Factura";}else{ echo "Boleta"; } ?></b></h4>
+<h4 style="padding:2px 0;border-bottom:1px dashed #333; color:blue;"><b>Datos Factura o Boleta</b></h4>
 </div>
 
 <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
-<label for="">Nº de Boleta oFactura ?></label>
+<label for="">Nº Factura o Boleta</label>
 <input type="text" name="numerofactura" id="input" class="form-control input-sm" value="<?php echo $rev->numerofactura; ?>" <?php if($rev->tipogasto==1){ echo "disabled";}else{ echo ""; }?>>
 </div>
 
@@ -196,17 +196,63 @@ if(region==16){ document.getElementById('director').value = "-";}
 
 <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
 <label>A</label>
-<select name="jefe" class="form-control input-sm" disabled="">
-<option value="">Orlando Mancilla Vasquez</option>
+<select name="jefe" class="form-control input-sm" required>
+<option value="">Seleccione una opción</option>
+<optgroup label="Departamento">
+<option value="1">Orlando Mancilla</option>
+<option value="2">Angela Venegas Avila</option>
+<option value="3">Marcos Barretto Muñoz</option>
+<option value="4">Soledad Castillo Medina</option>
+</optgroup>
+<optgroup label="Directores Regionales">
+<option value="5">[ I ] Camila Castillo Guerrero</option>
+<option value="6">[ II ] Victor Santoro</option>
+<option value="7">[ III ] Miguel Carvajal</option>
+<option value="8">[ IV ] Emilio Reyes Arias</option>
+<option value="9">[ V ] Cristina Pavez Cosio</option>
+<option value="10">[ VI ] Jorge Parraguez Caroca</option>
+<option value="11">[ VII ] Irene Muñoz Vilches</option>
+<option value="12">[ VIII ] Leocan Portus</option>
+<option value="13">[ IX ] Luis Villegas Cardenas</option>
+<option value="14">[ X ] Felipe Roman</option>
+<option value="15">[ XI ] Rodrigo Saldivia</option>
+<option value="16">[ XII ] Yenifer Sandoval Alegria</option>
+<option value="17">[ XIII ] Stefano Ferreccio Bugueño</option>
+<option value="18">[ XIV ] Rodrigo Lepe Nuñez</option>
+<option value="19">[ XV ] Samuel Pozo Alfaro</option>
+<option value="20">[ DR (S) ]Marcos Barretto Muñoz</option>
+</optgroup>
 </select>
 </div>
 
 <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
 <label>De</label>
-<select name="jefedepto" class="form-control input-sm">
-<option value="Angela Venegas A" <?php if($rev->jefedepto=="Angela Venegas A"){ echo "selected";}?>>Angela Venegas Avila</option>
-<option value="Marcos Barreto M" <?php if($rev->jefedepto=="Marcos Barreto M"){ echo "selected";}?>>Marcos Barreto Muñoz</option>
-<option value="Soledad Castillo M" <?php if($rev->jefedepto=="Soledad Castillo M"){ echo "selected";}?>>Soledad Castillo Medina</option>
+<select name="director" class="form-control input-sm" required>
+<option value="">Seleccione una opción</option>
+<optgroup label="Departamento">
+<option value="1">Orlando Mancilla</option>
+<option value="2">Angela Venegas Avila</option>
+<option value="3">Marcos Barretto Muñoz</option>
+<option value="4">Soledad Castillo Medina</option>
+</optgroup>
+<optgroup label="Directores Regionales">
+<option value="5">[ I ] Camila Castillo Guerrero</option>
+<option value="6">[ II ] Victor Santoro</option>
+<option value="7">[ III ] Miguel Carvajal</option>
+<option value="8">[ IV ] Emilio Reyes Arias</option>
+<option value="9">[ V ] Cristina Pavez Cosio</option>
+<option value="10">[ VI ] Jorge Parraguez Caroca</option>
+<option value="11">[ VII ] Irene Muñoz Vilches</option>
+<option value="12">[ VIII ] Leocan Portus</option>
+<option value="13">[ IX ] Luis Villegas Cardenas</option>
+<option value="14">[ X ] Felipe Roman</option>
+<option value="15">[ XI ] Rodrigo Saldivia</option>
+<option value="16">[ XII ] Yenifer Sandoval Alegria</option>
+<option value="17">[ XIII ] Stefano Ferreccio Bugueño</option>
+<option value="18">[ XIV ] Rodrigo Lepe Nuñez</option>
+<option value="19">[ XV ] Samuel Pozo Alfaro</option>
+<option value="20">[ DR (S) ]Marcos Barretto Muñoz</option>
+</optgroup>
 </select>
 </div>
 

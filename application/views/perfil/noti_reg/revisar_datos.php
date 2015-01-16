@@ -181,7 +181,7 @@ if(region==16){ document.getElementById('director').value = "-";}
 </div>
 
 <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
-<label for="">Nº de Boleta oFactura</label>
+<label for="">Nº de Boleta o Factura</label>
 <input type="text" name="numerofactura" id="input" class="form-control input-sm" value="" required>
 </div>
 
@@ -197,22 +197,67 @@ if(region==16){ document.getElementById('director').value = "-";}
 
 <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
 <label>A</label>
-<select name="jefe" class="form-control input-sm" disabled="">
-<option value=""><?php echo $rev->jefedepto; ?></option>
+<select name="jefe" class="form-control input-sm" required>
+<option value="">Seleccione una opción</option>
+<optgroup label="Departamento">
+<option value="1">Orlando Mancilla</option>
+<option value="2">Angela Venegas Avila</option>
+<option value="3">Marcos Barretto Muñoz</option>
+<option value="4">Soledad Castillo Medina</option>
+</optgroup>
+<optgroup label="Directores Regionales">
+<option value="5">[ I ] Camila Castillo Guerrero</option>
+<option value="6">[ II ] Victor Santoro</option>
+<option value="7">[ III ] Miguel Carvajal</option>
+<option value="8">[ IV ] Emilio Reyes Arias</option>
+<option value="9">[ V ] Cristina Pavez Cosio</option>
+<option value="10">[ VI ] Jorge Parraguez Caroca</option>
+<option value="11">[ VII ] Irene Muñoz Vilches</option>
+<option value="12">[ VIII ] Leocan Portus</option>
+<option value="13">[ IX ] Luis Villegas Cardenas</option>
+<option value="14">[ X ] Felipe Roman</option>
+<option value="15">[ XI ] Rodrigo Saldivia</option>
+<option value="16">[ XII ] Yenifer Sandoval Alegria</option>
+<option value="17">[ XIII ] Stefano Ferreccio Bugueño</option>
+<option value="18">[ XIV ] Rodrigo Lepe Nuñez</option>
+<option value="19">[ XV ] Samuel Pozo Alfaro</option>
+<option value="20">[ DR (S) ]Marcos Barretto Muñoz</option>
+</optgroup>
 </select>
 </div>
 
 <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
 <label>De</label>
-<input type="text" name="director" id="director" class="form-control input-sm" value="<?php echo $rev->directorreg; ?>" disabled="">
+<select name="director" class="form-control input-sm" required>
+<option value="">Seleccione una opción</option>
+<optgroup label="Departamento">
+<option value="1">Orlando Mancilla</option>
+<option value="2">Angela Venegas Avila</option>
+<option value="3">Marcos Barretto Muñoz</option>
+<option value="4">Soledad Castillo Medina</option>
+</optgroup>
+<optgroup label="Directores Regionales">
+<option value="5">[ I ] Camila Castillo Guerrero</option>
+<option value="6">[ II ] Victor Santoro</option>
+<option value="7">[ III ] Miguel Carvajal</option>
+<option value="8">[ IV ] Emilio Reyes Arias</option>
+<option value="9">[ V ] Cristina Pavez Cosio</option>
+<option value="10">[ VI ] Jorge Parraguez Caroca</option>
+<option value="11">[ VII ] Irene Muñoz Vilches</option>
+<option value="12">[ VIII ] Leocan Portus</option>
+<option value="13">[ IX ] Luis Villegas Cardenas</option>
+<option value="14">[ X ] Felipe Roman</option>
+<option value="15">[ XI ] Rodrigo Saldivia</option>
+<option value="16">[ XII ] Yenifer Sandoval Alegria</option>
+<option value="17">[ XIII ] Stefano Ferreccio Bugueño</option>
+<option value="18">[ XIV ] Rodrigo Lepe Nuñez</option>
+<option value="19">[ XV ] Samuel Pozo Alfaro</option>
+<option value="20">[ DR (S) ]Marcos Barretto Muñoz</option>
+</optgroup>
+</select>
 </div>
 
 
-
-<div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
-<label>Fecha Memorandum</label>
-<input type="text" name="fechamemo" id="datepickerb" class="form-control input-sm" value="<?php echo $rev->fechamemooc; ?>" disabled>
-</div>
 
 
 <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -320,7 +365,7 @@ if(region==16){ document.getElementById('director').value = "-";}
 
 <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <label for="">Observaciones</label>
-<textarea name="observaciones" class="form-control input-sm" cols="20" rows="5" disabled><?php echo $rev->observaciones; ?></textarea>
+<textarea name="observaciones" class="form-control input-sm" cols="20" rows="5"><?php echo $rev->observaciones; ?></textarea>
 </div>
 
 

@@ -3098,11 +3098,13 @@ $data['revisar']=$this->persona_model->get_datos_memo($id);
 if (isset($_POST['aceptar'])) {
 $codigo=$id;
 $visacion=$this->input->post('visacion');
-$jefedepto=$this->input->post('jefedepto');
+$a=$this->input->post('jefe');
+$de=$this->input->post('director');
+
 $observaciones=$this->input->post('observaciones');
 $etapaFlag=1;
 
-$update=$this->persona_model->aprobar_memo_etapa_dos($codigo,$visacion,$jefedepto,$observaciones,$etapaFlag);
+$update=$this->persona_model->aprobar_memo_etapa_dos($codigo,$visacion,$a,$de,$observaciones,$etapaFlag);
 
 if ($update) {
 echo "<script>alert('Acaba de aprobar un memorandum');window.location='".base_url('perfil/notificaciones')."';</script>";
@@ -3294,62 +3296,77 @@ $de_cargo="COORDINADORA DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
 if($memo->directorreg==5){
 $de="Camila Castillo Guerrero";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==6){
 $de="Victor Santoro";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==7){
 $de="Miguel Carvajal";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==8){
 $de="Emilio Reyes Arias";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==9){
 $de="Cristina Pavez Cosio";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==10){
 $de="Jorge Parraguez Caroca";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==11){
 $de="Irene Muñoz Vilches";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==12){
 $de="Leocan Portus";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==13){
 $de="Luis Villegas Cardenas";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==14){
 $de="Felipe Roman";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==15){
 $de="Rodrigo Saldivia";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==16){
 $de="Yenifer Sandoval Alegria";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==17){
 $de="Stefano Ferreccio Bugueño";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==18){
 $de="Rodrigo Lepe Nuñez";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==19){
 $de="Samuel Pozo Alfaro";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==20){
 $de="Marcos Barretto Muñoz";
@@ -3370,7 +3387,7 @@ $codigoHTML='
 <td>
 <table width="100%" border="0" cellpadding="5">
 <tr>
-<td colspan="3">MEMORANDUM '.strtoupper(str_replace($busca,$remplaza,$memo->nombreProg)).' - '.strtoupper($memo->romanoReg).' &nbsp;&nbsp;&nbsp;Nº &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/'.date("Y").'</td>
+<td colspan="3">MEMORANDUM '.strtoupper(str_replace($busca,$remplaza,$memo->nombreProg)).' - '.strtoupper($memo->romanoReg).' &nbsp;&nbsp;&nbsp;Nº &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/'.date("Y").'</td>
 </tr>
 
 <tr>
@@ -3582,8 +3599,16 @@ Sin otro particular, se despide.
 <tr>
 <td colspan="3" align="center"><b>
 '.strtoupper(str_replace($busca,$remplaza,$de)).'<br>
-'.strtoupper(str_replace($busca,$remplaza,$de_cargo)).'<br>
-'.strtoupper($memo->nombreReg).'<br>
+'.strtoupper(str_replace($busca,$remplaza,$de_cargo)).'<br>';
+
+if(isset($de_firma)){
+$codigoHTML.=strtoupper(str_replace($busca,$remplaza,$de_firma));
+}
+else {
+echo "";
+}
+
+$codigoHTML.='
 INSTITUTO NACIONAL DE LA JUVENTUD
 </b>
 </td>
@@ -3747,62 +3772,77 @@ $de_cargo="COORDINADORA DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
 if($memo->directorreg==5){
 $de="Camila Castillo Guerrero";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==6){
 $de="Victor Santoro";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==7){
 $de="Miguel Carvajal";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==8){
 $de="Emilio Reyes Arias";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==9){
 $de="Cristina Pavez Cosio";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==10){
 $de="Jorge Parraguez Caroca";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==11){
 $de="Irene Muñoz Vilches";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==12){
 $de="Leocan Portus";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==13){
 $de="Luis Villegas Cardenas";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==14){
 $de="Felipe Roman";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==15){
 $de="Rodrigo Saldivia";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==16){
 $de="Yenifer Sandoval Alegria";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==17){
 $de="Stefano Ferreccio Bugueño";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==18){
 $de="Rodrigo Lepe Nuñez";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==19){
 $de="Samuel Pozo Alfaro";
 $de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
 }
 if($memo->directorreg==20){
 $de="Marcos Barretto Muñoz";
@@ -3811,7 +3851,7 @@ $de_cargo="Director Regional (S)";
 
 
 $codigoHTML='
-<div class="well" style="font-size:10px;font-family:helvetica;">
+<div class="well" style="font-size:9px;font-family:helvetica;">
 <table width="100%" border="0">
 <tr>
 <td width="5%" valign="top"><img src="img/logo.png" alt="" width="90"></td>
@@ -3824,7 +3864,7 @@ $codigoHTML='
 <td>
 <table width="100%" border="0" cellpadding="5">
 <tr>
-<td colspan="3">MEMORANDUM '.strtoupper(str_replace($busca,$remplaza,$memo->nombreProg)).' &nbsp;&nbsp;&nbsp;Nº &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/'.date("Y").'</td>
+<td colspan="3">MEMORANDUM '.strtoupper(str_replace($busca,$remplaza,$memo->nombreProg)).' &nbsp;&nbsp;&nbsp;Nº &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/'.date("Y").'</td>
 </tr>
 
 <tr>
@@ -4043,8 +4083,16 @@ Sin otro particular, se despide.
 <td colspan="3" align="center">
 <b>
 '.strtoupper(str_replace($busca,$remplaza,$de)).'<br>
-'.strtoupper(str_replace($busca,$remplaza,$de_cargo)).'<br>
-'.strtoupper(str_replace($busca,$remplaza,$memo->nombreReg)).'<br>
+'.strtoupper(str_replace($busca,$remplaza,$de_cargo)).'<br>';
+
+if(isset($de_firma)){
+$codigoHTML.=strtoupper(str_replace($busca,$remplaza,$de_firma));
+}
+else {
+echo "";
+}
+
+$codigoHTML.='
 INSTITUTO NACIONAL DE LA JUVENTUD</b>
 </td>
 </tr>
@@ -4316,6 +4364,184 @@ $rowtotal=$AA+$BB+$CC+$DD+$EE+$FF;
 
 $totalMonto=$memo->monto+$memo->monto1+$memo->monto2+$memo->monto3+$memo->monto4+$memo->monto5;
 
+if($memo->jefedepto==1){
+$a="Orlando Mancilla Vasquez";
+$a_cargo="JEFE DEPTO. DE ADMINISTRACIÓN Y FINANZAS";
+}
+if($memo->jefedepto==2){
+$a="Angela Venegas Avila";
+$a_cargo="JEFA (S) DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->jefedepto==3){
+$a="Marcos Barretto Muñoz";
+$a_cargo="JEFE (S) DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->jefedepto==4){
+$a="Soledad Castillo Medina";
+$a_cargo="COORDINADORA DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->jefedepto==5){
+$a="Camila Castillo Guerrero";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==6){
+$a="Victor Santoro";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==7){
+$a="Miguel Carvajal";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==8){
+$a="Emilio Reyes Arias";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==9){
+$a="Cristina Pavez Cosio";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==10){
+$a="Jorge Parraguez Caroca";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==11){
+$a="Irene Muñoz Vilches";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==12){
+$a="Leocan Portus";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==13){
+$a="Luis Villegas Cardenas";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==14){
+$a="Felipe Roman";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==15){
+$a="Rodrigo Saldivia";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==16){
+$a="Yenifer Sandoval Alegria";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==17){
+$a="Stefano Ferreccio Bugueño";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==18){
+$a="Rodrigo Lepe Nuñez";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==19){
+$a="Samuel Pozo Alfaro";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==20){
+$a="Marcos Barretto Muñoz";
+$a_cargo="Director Regional (S)";
+}
+
+if($memo->directorreg==1){
+$de="Orlando Mancilla Vasquez";
+$de_cargo="JEFE DEPTO. DE ADMINISTRACIÓN Y FINANZAS";
+}
+if($memo->directorreg==2){
+$de="Angela Venegas Avila";
+$de_cargo="JEFA (S) DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->directorreg==3){
+$de="Marcos Barretto Muñoz";
+$de_cargo="JEFE (S) DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->directorreg==4){
+$de="Soledad Castillo Medina";
+$de_cargo="COORDINADORA DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->directorreg==5){
+$de="Camila Castillo Guerrero";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==6){
+$de="Victor Santoro";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==7){
+$de="Miguel Carvajal";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==8){
+$de="Emilio Reyes Arias";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==9){
+$de="Cristina Pavez Cosio";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==10){
+$de="Jorge Parraguez Caroca";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==11){
+$de="Irene Muñoz Vilches";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==12){
+$de="Leocan Portus";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==13){
+$de="Luis Villegas Cardenas";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==14){
+$de="Felipe Roman";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==15){
+$de="Rodrigo Saldivia";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==16){
+$de="Yenifer Sandoval Alegria";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==17){
+$de="Stefano Ferreccio Bugueño";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==18){
+$de="Rodrigo Lepe Nuñez";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==19){
+$de="Samuel Pozo Alfaro";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==20){
+$de="Marcos Barretto Muñoz";
+$de_cargo="Director Regional (S)";
+}
+
+
 $codigoHTML='
 <div class="well" style="font-size:9px;font-family:helvetica;">
 <table width="100%" border="0">
@@ -4330,15 +4556,15 @@ $codigoHTML='
 <td>
 <table width="100%" border="0" cellpadding="5">
 <tr>
-<td colspan="3">MEMORANDUM '.strtoupper(str_replace($busca,$remplaza,$memo->nombreProg)).' - '.strtoupper($memo->romanoReg).' &nbsp;&nbsp;&nbsp;Nº &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/'.date("Y").'</td>
+<td colspan="3">MEMORANDUM '.strtoupper(str_replace($busca,$remplaza,$memo->nombreProg)).' - '.strtoupper($memo->romanoReg).' &nbsp;&nbsp;&nbsp;Nº &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/'.date("Y").'</td>
 </tr>
 
 <tr>
 <td width="9%" valign="top">A</td>
 <td width="1%" valign="top">:</td>
 <td width="90%" valign="top">
-'.strtoupper($memo->jefedepto).'<br>
-JEFE /A DEPTO. (S) COORDINACIÓN PROGRAMÁTICA<br>
+'.strtoupper(str_replace($busca,$remplaza,$a)).'<br>
+'.strtoupper(str_replace($busca,$remplaza,$a_cargo)).'<br>
 INSTITUTO NACIONAL DE LA JUVENTUD
 </td>
 </tr>
@@ -4347,8 +4573,8 @@ INSTITUTO NACIONAL DE LA JUVENTUD
 <td width="9%" valign="top">DE</td>
 <td width="1%" valign="top">:</td>
 <td width="90%" valign="top">
-'.strtoupper($memo->directorreg).'<br>
-DIRECTOR /A REGIONAL<br>
+'.strtoupper(str_replace($busca,$remplaza,$de)).'<br>
+'.strtoupper(str_replace($busca,$remplaza,$de_cargo)).'<br>
 INSTITUTO NACIONAL DE LA JUVENTUD
 </td>
 </tr>
@@ -4442,7 +4668,7 @@ Junto con saludarle, solicito a usted tramitar la emisión '.$tipoemision.' para
 <td width="88%">'.$memo->numerooc.'</td>
 </tr>
 <tr>
-<td width="12%">Nº de Factura :</td>
+<td width="12%">Nº de Factura o Boleta:</td>
 <td width="88%">'.$memo->numerofactura.'</td>
 </tr>
 <tr>
@@ -4563,9 +4789,17 @@ Sin otro particular, se despide.
 </tr>
 <tr>
 <td colspan="3" align="center"><b>
-'.strtoupper($memo->directorreg).'<br>
-DIRECTOR /A REGIONAL<br>
-'.strtoupper($memo->nombreReg).'<br>
+'.strtoupper(str_replace($busca,$remplaza,$de)).'<br>
+'.strtoupper(str_replace($busca,$remplaza,$de_cargo)).'<br>';
+
+if(isset($de_firma)){
+$codigoHTML.=strtoupper(str_replace($busca,$remplaza,$de_firma));
+}
+else {
+echo "";
+}
+
+$codigoHTML.='
 INSTITUTO NACIONAL DE LA JUVENTUD
 </b>
 </td>
@@ -4631,6 +4865,184 @@ $rowtotal=$AA+$BB+$CC+$DD+$EE+$FF;
 
 $totalMonto=$memo->monto+$memo->monto1+$memo->monto2+$memo->monto3+$memo->monto4+$memo->monto5;
 
+if($memo->jefedepto==1){
+$a="Orlando Mancilla Vasquez";
+$a_cargo="JEFE DEPTO. DE ADMINISTRACIÓN Y FINANZAS";
+}
+if($memo->jefedepto==2){
+$a="Angela Venegas Avila";
+$a_cargo="JEFA (S) DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->jefedepto==3){
+$a="Marcos Barretto Muñoz";
+$a_cargo="JEFE (S) DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->jefedepto==4){
+$a="Soledad Castillo Medina";
+$a_cargo="COORDINADORA DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->jefedepto==5){
+$a="Camila Castillo Guerrero";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==6){
+$a="Victor Santoro";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==7){
+$a="Miguel Carvajal";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==8){
+$a="Emilio Reyes Arias";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==9){
+$a="Cristina Pavez Cosio";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==10){
+$a="Jorge Parraguez Caroca";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==11){
+$a="Irene Muñoz Vilches";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==12){
+$a="Leocan Portus";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==13){
+$a="Luis Villegas Cardenas";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==14){
+$a="Felipe Roman";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==15){
+$a="Rodrigo Saldivia";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==16){
+$a="Yenifer Sandoval Alegria";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==17){
+$a="Stefano Ferreccio Bugueño";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==18){
+$a="Rodrigo Lepe Nuñez";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==19){
+$a="Samuel Pozo Alfaro";
+$a_cargo="Director Regional";
+}
+if($memo->jefedepto==20){
+$a="Marcos Barretto Muñoz";
+$a_cargo="Director Regional (S)";
+}
+
+if($memo->directorreg==1){
+$de="Orlando Mancilla Vasquez";
+$de_cargo="JEFE DEPTO. DE ADMINISTRACIÓN Y FINANZAS";
+}
+if($memo->directorreg==2){
+$de="Angela Venegas Avila";
+$de_cargo="JEFA (S) DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->directorreg==3){
+$de="Marcos Barretto Muñoz";
+$de_cargo="JEFE (S) DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->directorreg==4){
+$de="Soledad Castillo Medina";
+$de_cargo="COORDINADORA DEPTO. DE COORDINACIÓN PROGRAMÁTICA";
+}
+if($memo->directorreg==5){
+$de="Camila Castillo Guerrero";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==6){
+$de="Victor Santoro";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==7){
+$de="Miguel Carvajal";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==8){
+$de="Emilio Reyes Arias";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==9){
+$de="Cristina Pavez Cosio";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==10){
+$de="Jorge Parraguez Caroca";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==11){
+$de="Irene Muñoz Vilches";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==12){
+$de="Leocan Portus";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==13){
+$de="Luis Villegas Cardenas";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==14){
+$de="Felipe Roman";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==15){
+$de="Rodrigo Saldivia";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==16){
+$de="Yenifer Sandoval Alegria";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==17){
+$de="Stefano Ferreccio Bugueño";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==18){
+$de="Rodrigo Lepe Nuñez";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==19){
+$de="Samuel Pozo Alfaro";
+$de_cargo="Director Regional";
+$de_firma=$memo->nombreReg."<br>";
+}
+if($memo->directorreg==20){
+$de="Marcos Barretto Muñoz";
+$de_cargo="Director Regional (S)";
+}
+
+
 $codigoHTML='
 <div class="well" style="font-size:9px;font-family:helvetica;">
 <table width="100%" border="0">
@@ -4652,8 +5064,8 @@ $codigoHTML='
 <td width="9%" valign="top">A</td>
 <td width="1%" valign="top">:</td>
 <td width="90%" valign="top">
-ORLANDO MANCILLA VASQUEZ<br>
-JEFE DEPTO. DE ADMINISTRACIÓN Y FINANZAS<br>
+'.strtoupper(str_replace($busca,$remplaza,$a)).'<br>
+'.strtoupper(str_replace($busca,$remplaza,$a_cargo)).'<br>
 INSTITUTO NACIONAL DE LA JUVENTUD
 </td>
 </tr>
@@ -4662,17 +5074,8 @@ INSTITUTO NACIONAL DE LA JUVENTUD
 <td width="9%" valign="top">DE</td>
 <td width="1%" valign="top">:</td>
 <td width="90%" valign="top">
-'.strtoupper($memo->jefedepto).'<br>';
-
-if($memo->jefedepto=="Soledad Castillo M"){
-$nombresss="COORDINADORA DE PROGRAMA<br>";
-}
-else{
-$nombresss="JEFE /A (S) DEPTO. DE COORDINACIÓN PROGRAMÁTICA<br>";
-}
-
-
-$codigoHTML.=''.$nombresss.'
+'.strtoupper(str_replace($busca,$remplaza,$de)).'<br>
+'.strtoupper(str_replace($busca,$remplaza,$de_cargo)).'<br>
 INSTITUTO NACIONAL DE LA JUVENTUD
 </td>
 </tr>
@@ -4776,7 +5179,7 @@ Junto con saludarle, solicito a usted tramitar la emisión '.$tipoemision.' para
 <td width="88%">'.$memo->numerooc.'</td>
 </tr>
 <tr>
-<td width="12%">Nº de Factura :</td>
+<td width="12%">Nº de Factura o Boleta :</td>
 <td width="88%">'.$memo->numerofactura.'</td>
 </tr>
 <tr>
@@ -4893,17 +5296,17 @@ Sin otro particular, se despide.
 </tr>
 <tr>
 <td colspan="3" align="center"><b>
-'.strtoupper($memo->jefedepto).'<br>';
+'.strtoupper(str_replace($busca,$remplaza,$de)).'<br>
+'.strtoupper(str_replace($busca,$remplaza,$de_cargo)).'<br>';
 
-if($memo->jefedepto=="Soledad Castillo M"){
-$nombress="COORDINADORA DE PROGRAMA<br>";
-}else{
-
-$nombress="JEFE /A DEPTO. DE COORDINACIÓN PROGRAMÁTICA<br>";
-
+if(isset($de_firma)){
+$codigoHTML.=strtoupper(str_replace($busca,$remplaza,$de_firma));
+}
+else {
+echo "";
 }
 
-$codigoHTML.=''.$nombress.'
+$codigoHTML.='
 INSTITUTO NACIONAL DE LA JUVENTUD
 </b>
 </td>
@@ -5606,14 +6009,18 @@ $this->form_validation->set_message('is_unique',' Ya existe');
 
 if($this->form_validation->run()){
 $codigo=$id;
+$nombreactividad=$this->input->post('nombreactividad');
+$producto=$this->input->post('producto');
+$observaciones=$this->input->post('observaciones');
 $numerooc=$this->input->post('numerooc');
 $fechaoc=$this->input->post('fechaoc');
 $fechafinanza=$this->input->post('fechafinanza');
 $visacion=$this->input->post('visacion');
 $mescontable=$this->input->post('mescontable');
+
 $etapaFlag=2;
 
-$update=$this->persona_model->aprobar_memo_etapa_tres($codigo,$numerooc,$fechaoc,$fechafinanza,$visacion,$mescontable,$etapaFlag);
+$update=$this->persona_model->aprobar_memo_etapa_tres($codigo,$nombreactividad,$producto,$observaciones,$numerooc,$fechaoc,$fechafinanza,$visacion,$mescontable,$etapaFlag);
 
 if ($update) {
 echo "<script>alert('Acaba de aprobar un memorandum, recuerde adjuntar la orden de compra para que pueda cambiar el estado de la solicitud.');window.location='".base_url('perfil/pnud')."';</script>";
@@ -5751,10 +6158,13 @@ $codigo=$id;
 $visacion=$this->input->post('visacion');
 $numerofactura=$this->input->post('numerofactura');
 $monto=$this->input->post('monto');
+$jefe=$this->input->post('jefe');
+$director=$this->input->post('director');
+$observaciones=$this->input->post('observaciones');
 
 $etapaFlag=3;
 
-$update=$this->persona_model->aprobar_memo_etapa_cuatro($codigo,$visacion,$numerofactura,$monto,$etapaFlag);
+$update=$this->persona_model->aprobar_memo_etapa_cuatro($codigo,$visacion,$numerofactura,$monto,$jefe,$director,$observaciones,$etapaFlag);
 
 if ($update) {
 echo "<script>alert('Acaba de aprobar un memorandum');window.location='".base_url('perfil/noti_region')."';</script>";
@@ -5816,12 +6226,21 @@ $data['ver_pago']=$this->persona_model->get_datos_memo_cinco($id);
 if (isset($_POST['aceptar'])) {
 $codigo=$id;
 $visacion=$this->input->post('visacion');
-$jefedepto=$this->input->post('jefedepto');
-$numerofactura=$this->input->post('numerofactura');
+$jefedepto=$this->input->post('jefe');
+$director=$this->input->post('director');
+$observaciones=$this->input->post('observaciones');
 $etapaFlag=4;
 $adj_cinco="Falta";
 
-$update=$this->persona_model->aprobar_memo_etapa_cinco($codigo,$visacion,$jefedepto,$numerofactura,$etapaFlag,$adj_cinco);
+$numerofactura=$this->input->post('numerofactura');
+
+
+if($numerofactura==""){
+$update=$this->persona_model->aprobar_memo_etapa_cinco($codigo,$visacion,$jefedepto,$director,$observaciones,$etapaFlag,$adj_cinco);
+}
+else{
+$update=$this->persona_model->aprobar_memo_etapa_cinco_fct($codigo,$visacion,$jefedepto,$director,$observaciones,$etapaFlag,$adj_cinco,$numerofactura);
+}
 
 if ($update) {
 echo "<script>alert('Acaba de aprobar un memorandum');window.location='".base_url('perfil/solicitud_pago_facturas')."';</script>";

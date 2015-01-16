@@ -11,9 +11,12 @@
 <td rowspan="16" width="12%">&nbsp;</td>
 <td>
 <table width="100%" border="0" cellpadding="5">
-
+<?php
+$busca = array('á','é','í','ó','ú');
+$remplaza = array('Á','É','Í','Ó','Ú');
+?>
 <tr>
-<td colspan="3">MEMORANDUM <?php echo strtoupper($memo->nombreProg); ?> &nbsp;&nbsp;&nbsp;Nº &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;/<?php echo date('Y'); ?></td>
+<td colspan="3">MEMORANDUM <?php echo strtoupper(str_replace($busca,$remplaza,$memo->nombreProg)); ?> &nbsp;&nbsp;&nbsp;Nº &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<?php echo date('Y'); ?></td>
 </tr>
 <tr>
 <td colspan="3">&nbsp;</td>
@@ -342,7 +345,7 @@ Junto con saludarle, solicito a usted tramitar <?php echo $tipoemision;?> para i
 <td width="88%"><?php echo $memo->numerooc; ?></td>
 </tr>
 <tr>
-<td width="12%">Nº de Factura o Boleta :</td>
+<td width="12%">Nº Factura o Boleta :</td>
 <td width="88%"><?php echo $memo->numerofactura; ?></td>
 </tr>
 <tr>

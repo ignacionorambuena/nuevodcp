@@ -226,12 +226,12 @@ if(region==16){ document.getElementById('director').value = "-";}
 
 <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <label>Nombre Actividad</label>
-<input type="text" name="nombreactividad" class="form-control input-sm" value="<?php echo $rev->nombreActGastos; ?>" disabled>
+<input type="text" name="nombreactividad" class="form-control input-sm" value="<?php echo $rev->nombreActGastos; ?>">
 </div>
 
 <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <label>Producto</label>
-<textarea name="producto" id="" cols="30" rows="5" class="form-control input-sm" disabled><?php echo $rev->productoAct; ?></textarea>
+<textarea name="producto" id="" cols="30" rows="5" class="form-control input-sm"><?php echo $rev->productoAct; ?></textarea>
 </div>
 
 <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -259,12 +259,18 @@ if(region==16){ document.getElementById('director').value = "-";}
 <input type="text" name="fechaactividad"  class="form-control input-sm" value="<?php echo $rev->fechainicio; ?>" disabled="">
 </div>
 
-
-
 <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
 <label>Tipo de Gasto</label>
 <select name="tipogasto" class="form-control input-sm" disabled>
-<option><?php if($rev->tipogasto==1){ echo "Orden de Compra"; } ?></option>
+<option>
+<?php
+if($rev->tipogasto==1){ echo "Orden de Compra"; }
+else if($rev->tipogasto==2){ echo "Boleta Honorario"; }
+else if($rev->tipogasto==3){ echo "Pago Directo"; }
+else if($rev->tipogasto==4){ echo "Licitación"; }
+else if($rev->tipogasto==5){ echo "Orden de Compra Nivel Central"; }
+
+?></option>
 </select>
 </div>
 
@@ -275,10 +281,8 @@ if(region==16){ document.getElementById('director').value = "-";}
 
 <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <label for="">Observaciones</label>
-<textarea name="observaciones" class="form-control input-sm" cols="20" rows="5" disabled><?php echo $rev->observaciones; ?></textarea>
+<textarea name="observaciones" class="form-control input-sm" cols="20" rows="5"><?php echo $rev->observaciones; ?></textarea>
 </div>
-
-
 
 
 <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">

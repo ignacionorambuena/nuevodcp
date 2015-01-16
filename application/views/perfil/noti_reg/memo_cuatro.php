@@ -351,7 +351,7 @@ Junto con enviar mis cordiales saludos y en el marco del <?php echo $memo->nombr
 <td width="88%"><?php echo $memo->numerooc; ?></td>
 </tr>
 <tr>
-<td width="12%">Nº de Factura :</td>
+<td width="12%">Nº Factura o Boleta :</td>
 <td width="88%"><?php echo $memo->numerofactura; ?></td>
 </tr>
 <tr>
