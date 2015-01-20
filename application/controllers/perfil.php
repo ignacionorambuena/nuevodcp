@@ -4685,7 +4685,7 @@ Junto con saludarle, solicito a usted tramitar la emisión '.$tipoemision.' para
 </tr>
 <tr>
 <td width="12%">Nº de Cuenta :</td>
-<td width="88%">'.$memo->rutProv.'</td>
+<td width="88%">'.$memo->numerocuentaProv.'</td>
 </tr>
 
 <tr>
@@ -5192,7 +5192,7 @@ Junto con saludarle, solicito a usted tramitar la emisión '.$tipoemision.' para
 </tr>
 <tr>
 <td width="12%">Nº de Cuenta :</td>
-<td width="88%">'.$memo->rutProv.'</td>
+<td width="88%">'.$memo->numerocuentaProv.'</td>
 </tr>
 
 <tr>
@@ -6473,10 +6473,12 @@ $fechapnud=$this->input->post('fechapnud');
 
 $fechapnud=str_replace("-", "/", $fechapnud);
 
+$numeroface=$this->input->post('numeroface');
+
 $mescontable=$this->input->post('mescontable');
 $etapaFlag=6;
 
-$update=$this->persona_model->aprobar_memo_etapa_seis($codigo,$fechapnud,$mescontable,$etapaFlag);
+$update=$this->persona_model->aprobar_memo_etapa_seis($codigo,$fechapnud,$numeroface,$mescontable,$etapaFlag);
 
 if ($update) {
 echo "<script>alert('Acaba de devengar un gasto');window.location='".base_url('perfil/pagos_pendientes')."';</script>";
@@ -6587,6 +6589,147 @@ $this->load->view('header');
 
 $this->load->view('perfil/adjuntos/home', $data);
 }
+
+
+
+public function seguimiento()
+{
+$session_data=$this->session->userdata('datosuser');
+$data=array(
+'usuarioUsr'=>$session_data['usuarioUsr'],
+'nombreUsr'=>$session_data['nombreUsr'],
+'perfilUsr'=>$session_data['perfilUsr'],
+'regionUsr'=>$session_data['regionUsr'],
+'programaUsr'=>$session_data['programaUsr'],
+'componenteUsr'=>$session_data['componenteUsr'],
+'item'=>$this->persona_model->listar_item(),
+// 'region'=>$this->persona_model->listar_region_b($region),
+'region'=>$this->persona_model->listar_region(),
+'programa'=>$this->persona_model->listar_programa(),
+'codigo'=>$this->persona_model->codigo_gasto(),
+'proveedor'=>$this->persona_model->listar_proveedor()
+);
+
+
+if(isset($_POST['aceptar'])){
+
+$codigo_gasto=$this->input->post('codigo');
+
+$data=array(
+'usuarioUsr'=>$session_data['usuarioUsr'],
+'nombreUsr'=>$session_data['nombreUsr'],
+'perfilUsr'=>$session_data['perfilUsr'],
+'regionUsr'=>$session_data['regionUsr'],
+'programaUsr'=>$session_data['programaUsr'],
+'componenteUsr'=>$session_data['componenteUsr'],
+'item'=>$this->persona_model->listar_item(),
+// 'region'=>$this->persona_model->listar_region_b($region),
+'region'=>$this->persona_model->listar_region(),
+'programa'=>$this->persona_model->listar_programa(),
+'codigo'=>$this->persona_model->codigo_gasto(),
+'proveedor'=>$this->persona_model->listar_proveedor(),
+'search_code'=>$this->persona_model->seguimiento($codigo_gasto)
+);
+
+}
+
+$this->load->view('header');
+if($data['perfilUsr']==4){
+$data['cant_noti']=$this->persona_model->count_noti_etapa_uno();
+$this->load->view('perfil/menu/menu-apoyo', $data);
+}
+else if($data['perfilUsr']==7){
+$data['cant_cinco']=$this->persona_model->count_noti_etapa_cinco();
+$data['cant_noti']=$this->persona_model->count_noti_etapa_dos();
+$this->load->view('perfil/menu/menu-pnud', $data);
+}
+else if($data['perfilUsr']==6){
+$data['cant_noti']=$this->persona_model->count_noti_etapa_tres();
+$this->load->view('perfil/menu/menu-region', $data);
+}
+else if($data['perfilUsr']==5){
+$data['cant_noti']=$this->persona_model->count_noti_etapa_tres();
+$this->load->view('perfil/menu/menu-region', $data);
+}
+else{
+$this->load->view('perfil/menu/menu-perfil', $data);
+}
+$this->load->view('perfil/seguimiento/inicio', $data);
+$this->load->view('footer');
+}
+
+
+public function saldo_proveedor()
+{
+
+$session_data=$this->session->userdata('datosuser');
+$data=array(
+'usuarioUsr'=>$session_data['usuarioUsr'],
+'nombreUsr'=>$session_data['nombreUsr'],
+'perfilUsr'=>$session_data['perfilUsr'],
+'regionUsr'=>$session_data['regionUsr'],
+'programaUsr'=>$session_data['programaUsr'],
+'componenteUsr'=>$session_data['componenteUsr'],
+'item'=>$this->persona_model->listar_item(),
+// 'region'=>$this->persona_model->listar_region_b($region),
+'region'=>$this->persona_model->listar_region(),
+'programa'=>$this->persona_model->listar_programa(),
+'codigo'=>$this->persona_model->codigo_gasto()
+);
+
+
+if(isset($_POST['aceptar']))
+{
+$rutProv=$this->input->post('rut');
+
+$rutProv=str_replace(".", "", $rutProv);
+
+$session_data=$this->session->userdata('datosuser');
+$data=array(
+'usuarioUsr'=>$session_data['usuarioUsr'],
+'nombreUsr'=>$session_data['nombreUsr'],
+'perfilUsr'=>$session_data['perfilUsr'],
+'regionUsr'=>$session_data['regionUsr'],
+'programaUsr'=>$session_data['programaUsr'],
+'componenteUsr'=>$session_data['componenteUsr'],
+'item'=>$this->persona_model->listar_item(),
+// 'region'=>$this->persona_model->listar_region_b($region),
+'region'=>$this->persona_model->listar_region(),
+'programa'=>$this->persona_model->listar_programa(),
+'codigo'=>$this->persona_model->codigo_gasto(),
+'proveedor'=>$this->persona_model->saldo_proveedor($rutProv)
+);
+
+
+
+}
+
+$this->load->view('header');
+if($data['perfilUsr']==4){
+$data['cant_noti']=$this->persona_model->count_noti_etapa_uno();
+$this->load->view('perfil/menu/menu-apoyo', $data);
+}
+else if($data['perfilUsr']==7){
+$data['cant_cinco']=$this->persona_model->count_noti_etapa_cinco();
+$data['cant_noti']=$this->persona_model->count_noti_etapa_dos();
+$this->load->view('perfil/menu/menu-pnud', $data);
+}
+else if($data['perfilUsr']==6){
+$data['cant_noti']=$this->persona_model->count_noti_etapa_tres();
+$this->load->view('perfil/menu/menu-region', $data);
+}
+else if($data['perfilUsr']==5){
+$data['cant_noti']=$this->persona_model->count_noti_etapa_tres();
+$this->load->view('perfil/menu/menu-region', $data);
+}
+else{
+$this->load->view('perfil/menu/menu-perfil', $data);
+}
+$this->load->view('perfil/proveedor/ver_saldo', $data);
+$this->load->view('footer');
+}
+
+
 
 }
 /* End of file nivel.php */

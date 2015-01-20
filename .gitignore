@@ -1,0 +1,5 @@
+application/views/perfil/proveedor/ver_saldo.php
+application/views/perfil/seguimiento/
+application/config/config.php
+application/config/database.php
+sftp-config.json

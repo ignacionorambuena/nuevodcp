@@ -693,6 +693,25 @@ $query=$this->db_distribucion->get();
 return $query->result();
 }
 
+
+
+
+public function saldo_proveedor($rutProv)
+{
+$this->db_distribucion->select('*')
+->from('proveedor P')
+->join('gastos G','G.idProv=P.idProv','left')
+->where('G.estado',"Devengado")
+->where('G.mescontable !=',"")
+->where('P.rutProv',$rutProv)
+->group_by(array('G.idProv','G.mescontable'))
+->select_sum('G.monto');
+
+$query=$this->db_distribucion->get();
+return $query->result();
+}
+
+
 public function recoje_datos($propir)
 {
 $this->db_distribucion->select('*')
@@ -741,6 +760,22 @@ $query=$this->db_distribucion->get();
 return $query->result();
 }
 
+
+public function seguimiento($codigo_gasto)
+{
+$query=$this->db_distribucion->select('*')
+				->from('gastos A')
+				->join('programa B','B.idProg=A.idProg','left')
+				->join('componente C','C.idComp=A.idComp','left')
+				->join('actividad D','D.idAct=A.idAct','left')
+				->join('cuenta E','E.idCuenta=A.idCuenta','left')
+				->join('item F','F.idItem=A.idItem','left')
+				->join('region G','G.idReg=A.idReg','left')
+				->where('A.codGasto',$codigo_gasto)
+				->where('estado !=','Anulado');
+$query=$this->db_distribucion->get();
+return $query->result();
+}
 
 public function listar_gastos_b($region)
 {
@@ -1600,11 +1635,12 @@ return FALSE;
 
 }
 
-public function aprobar_memo_etapa_seis($codigo,$fechapnud,$mescontable,$etapaFlag)
+public function aprobar_memo_etapa_seis($codigo,$fechapnud,$numeroface,$mescontable,$etapaFlag)
 {
 $data=array(
 'fechaenviopnud'=>$fechapnud,
 'mescontable'=>$mescontable,
+'numeroface'=>$numeroface,
 'estado'=>"Devengado",
 'etapaFlag'=>$etapaFlag
 );

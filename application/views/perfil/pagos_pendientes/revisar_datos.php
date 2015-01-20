@@ -181,12 +181,17 @@ if(region==16){ document.getElementById('director').value = "-";}
 <h4 style="padding:2px 0;border-bottom:1px dashed #333; color:blue;"><b>Datos PNUD</b></h4>
 </div>
 
-<div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
+<div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4">
+<label for="">Nº de Face</label>
+<input type="text" name="numeroface" id="input" class="form-control input-sm" value="" required="required" title="">
+</div>
+
+<div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4">
 <label for="">Fecha envío a PNUD</label>
 <input type="date" name="fechapnud" id="input" class="form-control input-sm" value="" required="required" title="">
 </div>
 
-<div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
+<div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4">
 <label>Mes contable PNUD</label>
 <select name="mescontable" class="form-control input-sm">
 <option value="Enero">Enero</option>

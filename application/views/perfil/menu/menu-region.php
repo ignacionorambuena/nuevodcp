@@ -23,7 +23,7 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
 
 <ul class="nav navbar-nav navbar-right">
-<li><a href="<?php echo base_url('/perfil'); ?>"><i class="fa fa-home"></i> Inicio</a></li>
+<li><a href="<?php echo base_url('/perfil'); ?>"><i class="fa fa-home"></i></a></li>
 
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Programas <b class="caret"></b></a>
@@ -106,17 +106,13 @@
 </ul>
 </li>
 
-<!-- <li class="dropdown">
-<a href="#" class="dropdown-toggle" data-toggle="dropdown">Notificaciones <b class="caret"></b></a>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tasks"></i> Seguimiento <b class="caret"></b></a>
 <ul class="dropdown-menu">
-<li><a href="<?php echo base_url('/perfil/ver_usuarios'); ?>">Etapa 1</a></li>
-<li><a href="<?php echo base_url('/perfil/ver_usuarios'); ?>">Etapa 2</a></li>
-<li><a href="<?php echo base_url('/perfil/ver_usuarios'); ?>">Etapa 3</a></li>
-<li><a href="<?php echo base_url('/perfil/ver_usuarios'); ?>">Etapa 4</a></li>
-<li><a href="<?php echo base_url('/perfil/ver_usuarios'); ?>">Etapa 5</a></li>
-<li><a href="<?php echo base_url('/perfil/ver_usuarios'); ?>">Etapa 6</a></li>
+<li><a href="<?php echo base_url('/perfil/seguimiento'); ?>">Ver Seguimiento</a></li>
+
 </ul>
-</li> -->
+</li>
 
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proveedor <b class="caret"></b></a>
